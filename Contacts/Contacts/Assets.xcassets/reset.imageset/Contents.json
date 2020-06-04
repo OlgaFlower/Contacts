@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Снимок экрана 2020-06-04 в 22.11.50.png",
+      "filename" : "reset.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "reset-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "reset-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

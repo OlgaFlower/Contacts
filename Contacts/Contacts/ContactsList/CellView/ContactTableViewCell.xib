@@ -38,8 +38,9 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image5" translatesAutoresizingMaskIntoConstraints="NO" id="cQO-1N-A61">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cQO-1N-A61">
                                 <rect key="frame" x="5" y="4" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.36068746569999999" green="0.34011268649999998" blue="0.0091755512380000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="9RF-wv-bLZ"/>
                                     <constraint firstAttribute="height" constant="50" id="etK-EQ-cbQ"/>
@@ -74,7 +75,4 @@
             <point key="canvasLocation" x="86.956521739130437" y="6.6964285714285712"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="image5" width="810" height="920"/>
-    </resources>
 </document>

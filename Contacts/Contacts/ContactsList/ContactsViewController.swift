@@ -16,6 +16,7 @@ class ContactsViewController: UIViewController {
     
     //MARK: - Properties
     private let presenter = ContactsPresenter()
+    
 //    private var contactsList: [Person]?
 
     override func viewDidLoad() {
@@ -28,6 +29,7 @@ class ContactsViewController: UIViewController {
     func setupVC() {
         setupTableView()
         setupSearchBar()
+        setupResetNavBarButton()
     }
     
     func setupTableView() {
@@ -41,6 +43,15 @@ class ContactsViewController: UIViewController {
         searchBar.backgroundImage = UIImage()
     }
     
+    func setupResetNavBarButton() {
+//        let resetBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logoutUser))
+//        self.navigationItem.rightBarButtonItem  = logoutBarButtonItem
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .done, target: self, action: #selector(resetTapped))
+    }
+    
+    @objc func resetTapped() {
+        
+    }
 }
 
 //MARK: - Table View Datasource

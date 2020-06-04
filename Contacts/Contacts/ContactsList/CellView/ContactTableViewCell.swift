@@ -29,14 +29,14 @@ class ContactTableViewCell: UITableViewCell {
     }
 
     func resetContent() {
-        contactImageView.image = UIImage(named: "image5")
+        contactImageView.image = UIImage(named: "image1")
         fullNameLabel.text = nil
         emailLabel.text = nil
     }
     
     func setupViews() {
-        contactCellView.layer.cornerRadius = 7
-        contactImageView.layer.cornerRadius = 7
+        contactCellView.layer.cornerRadius = 10
+        contactImageView.layer.cornerRadius = 10
     }
     
 }
