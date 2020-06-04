@@ -12,7 +12,7 @@ class ContactsViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var contentSearchView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     //MARK: - Properties
     private let presenter = ContactsPresenter()
@@ -21,18 +21,29 @@ class ContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTableView()
+        setupVC()
         
+    }
+    
+    func setupVC() {
+        setupTableView()
+        setupSearchBar()
     }
     
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "contactCell")
+    }
+    
+    func setupSearchBar() {
+        searchBar.backgroundImage = UIImage()
     }
     
 }
 
+//MARK: - Table View Datasource
 extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

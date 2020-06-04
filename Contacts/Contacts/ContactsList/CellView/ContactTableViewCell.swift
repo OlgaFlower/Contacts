@@ -25,6 +25,7 @@ class ContactTableViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         resetContent()
+        setupViews()
     }
 
     func resetContent() {
