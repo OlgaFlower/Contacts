@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OXZ-GL-A5l">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Contacts-->
+        <!--CONTACTS-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ContactsViewController" id="BYZ-38-t0r" customClass="ContactsViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back1" translatesAutoresizingMaskIntoConstraints="NO" id="eQl-At-VKe" userLabel="background">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gtW-S6-4CP">
-                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ugD-QW-82s">
-                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactCell" id="Pnq-AZ-qU4" customClass="ContactTableViewCell" customModule="Contacts" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pnq-AZ-qU4" id="NK2-fC-iv9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -40,17 +46,21 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="eQl-At-VKe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3eg-C9-Ljb"/>
+                            <constraint firstAttribute="bottom" secondItem="eQl-At-VKe" secondAttribute="bottom" id="6md-yD-j12"/>
+                            <constraint firstItem="eQl-At-VKe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AeT-0E-tHN"/>
                             <constraint firstItem="ugD-QW-82s" firstAttribute="top" secondItem="gtW-S6-4CP" secondAttribute="bottom" id="Fou-Ru-y5I"/>
                             <constraint firstItem="gtW-S6-4CP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ga5-zW-3Wk"/>
                             <constraint firstItem="ugD-QW-82s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Om3-Fm-eL5"/>
                             <constraint firstItem="ugD-QW-82s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OtY-xl-FgQ"/>
+                            <constraint firstItem="eQl-At-VKe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="T6f-WX-Y2r"/>
                             <constraint firstItem="gtW-S6-4CP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TfM-Sr-WVr"/>
                             <constraint firstItem="ugD-QW-82s" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lHZ-5M-XOQ"/>
                             <constraint firstItem="gtW-S6-4CP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yj1-J1-NGN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Contacts" id="Uej-MO-cpB"/>
+                    <navigationItem key="navigationItem" title="CONTACTS" id="Uej-MO-cpB"/>
                     <connections>
                         <outlet property="searchBar" destination="gtW-S6-4CP" id="Arv-om-oiR"/>
                         <outlet property="tableView" destination="ugD-QW-82s" id="S4h-Cx-Ho6"/>
@@ -58,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071.2" y="105.69715142428787"/>
+            <point key="canvasLocation" x="1071.0144927536232" y="105.13392857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wBx-uI-5F5">
@@ -66,7 +76,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OXZ-GL-A5l" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wt9-Eo-4ct">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -79,4 +89,7 @@
             <point key="canvasLocation" x="132" y="105.69715142428787"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back1" width="566.66668701171875" height="1166.6666259765625"/>
+    </resources>
 </document>

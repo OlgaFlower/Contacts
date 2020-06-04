@@ -30,6 +30,7 @@ class ContactsViewController: UIViewController {
         setupTableView()
         setupSearchBar()
         setupResetNavBarButton()
+        setupNavbarAppearence()
     }
     
     func setupTableView() {
@@ -37,21 +38,37 @@ class ContactsViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "contactCell")
+        tableView.backgroundColor = .clear
     }
     
     func setupSearchBar() {
         searchBar.backgroundImage = UIImage()
+        searchBar.searchTextField.leftView?.tintColor = .white
     }
     
     func setupResetNavBarButton() {
-//        let resetBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logoutUser))
-//        self.navigationItem.rightBarButtonItem  = logoutBarButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .done, target: self, action: #selector(resetTapped))
+        let restoreImage = UIImage(named: "restore")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: restoreImage, style: .done, target: self, action: #selector(resetTapped))
     }
+    
+    func setupNavbarAppearence() {
+        let navBar = navigationController?.navigationBar
+        //items text color
+        navBar?.tintColor = .white
+        //title text color
+        navBar?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        //transparency of the nav bar
+        navBar?.setBackgroundImage(UIImage(), for: .default)
+        navBar?.shadowImage = UIImage()
+        navBar?.isTranslucent = true
+    }
+    
     
     @objc func resetTapped() {
         
     }
+    
+    
 }
 
 //MARK: - Table View Datasource
@@ -63,7 +80,10 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
+        cell.layer.backgroundColor = UIColor.clear.cgColor
+        
         presenter.configureContactCell(cell, indexPath: indexPath)
+        
         return cell
     }
     

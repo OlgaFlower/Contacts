@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "reset.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "reset-1.png",
+      "filename" : "icons8-restore-50.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "reset-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

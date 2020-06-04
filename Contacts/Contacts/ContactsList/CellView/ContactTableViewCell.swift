@@ -29,7 +29,6 @@ class ContactTableViewCell: UITableViewCell {
     }
 
     func resetContent() {
-        contactImageView.image = UIImage(named: "image1")
         fullNameLabel.text = nil
         emailLabel.text = nil
     }
