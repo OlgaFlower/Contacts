@@ -13,6 +13,7 @@ class ContactsViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var addNewContactButton: UIButton!
     
     //MARK: - Properties
     private let presenter = ContactsPresenter()
@@ -68,6 +69,9 @@ class ContactsViewController: UIViewController {
         
     }
     
+    @IBAction func addNewContactTapped(_ sender: Any) {
+        print("add new contact!")
+    }
     
 }
 

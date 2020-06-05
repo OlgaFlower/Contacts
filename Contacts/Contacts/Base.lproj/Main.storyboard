@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back1" translatesAutoresizingMaskIntoConstraints="NO" id="eQl-At-VKe" userLabel="background">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="eQl-At-VKe" userLabel="background">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gtW-S6-4CP">
@@ -43,13 +43,30 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="9JN-Ji-gGr"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXF-sZ-4W4">
+                                <rect key="frame" x="326" y="612" width="45" height="45"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="fe9-EG-wZB"/>
+                                    <constraint firstAttribute="height" constant="45" id="xq3-E4-ea9"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="plus.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewContactTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OT9-RD-gWa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="eQl-At-VKe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3eg-C9-Ljb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CXF-sZ-4W4" secondAttribute="bottom" constant="10" id="4Jh-Cc-F0n"/>
                             <constraint firstAttribute="bottom" secondItem="eQl-At-VKe" secondAttribute="bottom" id="6md-yD-j12"/>
                             <constraint firstItem="eQl-At-VKe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AeT-0E-tHN"/>
                             <constraint firstItem="ugD-QW-82s" firstAttribute="top" secondItem="gtW-S6-4CP" secondAttribute="bottom" id="Fou-Ru-y5I"/>
+                            <constraint firstItem="CXF-sZ-4W4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-4" id="GIY-44-ee0"/>
                             <constraint firstItem="gtW-S6-4CP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ga5-zW-3Wk"/>
                             <constraint firstItem="ugD-QW-82s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Om3-Fm-eL5"/>
                             <constraint firstItem="ugD-QW-82s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OtY-xl-FgQ"/>
@@ -62,13 +79,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="CONTACTS" id="Uej-MO-cpB"/>
                     <connections>
+                        <outlet property="addNewContactButton" destination="CXF-sZ-4W4" id="Asf-Lh-Wdy"/>
                         <outlet property="searchBar" destination="gtW-S6-4CP" id="Arv-om-oiR"/>
                         <outlet property="tableView" destination="ugD-QW-82s" id="S4h-Cx-Ho6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071.0144927536232" y="105.13392857142857"/>
+            <point key="canvasLocation" x="1069.5999999999999" y="104.7976011994003"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wBx-uI-5F5">
@@ -90,6 +108,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back1" width="850" height="1750"/>
+        <image name="background" width="850" height="1750"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>
