@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNavbarEditButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,9 +38,19 @@ class DetailViewController: UIViewController {
     func hideAddContactButton() {
         print("isNewContact = \(isNewContact)")
         addNewContactButton.isHidden = !isNewContact
+        if !addNewContactButton.isHidden {
+            addNewContactButton.newContactButtonSetup()
+        }
     }
     
+    func setupNavbarEditButton() {
+        let editImage = UIImage(named: "edit")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: editImage, style: .done, target: self, action: #selector(editTapped))
+    }
     
+    @objc func editTapped() {
+        
+    }
     
     //MARK: - Actions
     @IBAction func doneButtonTapped(_ sender: Any) {
@@ -48,4 +58,10 @@ class DetailViewController: UIViewController {
     }
 }
 
-
+extension UIButton {
+func newContactButtonSetup() {
+        self.layer.borderWidth = 1.0
+        self.layer.cornerRadius = 5.0
+    self.layer.borderColor = UIColor.white.cgColor
+    }
+}
