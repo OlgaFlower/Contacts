@@ -20,14 +20,16 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var emailTextfield: UITextField!
     
-    
     //MARK: - Properties
     var isNewContact = false
+    var personCard: Person?
+    
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(personCard)
+        displayDetails()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +38,6 @@ class DetailViewController: UIViewController {
     
     
     //MARK: - Setup UI
-    
     func setupUI() {
         setupAddContactButtons()
         setupNavbarEditButton()
@@ -64,8 +65,14 @@ class DetailViewController: UIViewController {
         contactImageView.rounded()
     }
     
-    //MARK: - Actions
+    //MARK: - Display contact details
+    func displayDetails() {
+        firstNameTextfield.text = personCard?.firstName
+        lastNameTextfield.text = personCard?.lastName
+        emailTextfield.text = personCard?.email
+    }
     
+    //MARK: - Actions
     @objc func editTapped() {
         
     }
@@ -77,7 +84,6 @@ class DetailViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        ("canceled")
     }
     
 }

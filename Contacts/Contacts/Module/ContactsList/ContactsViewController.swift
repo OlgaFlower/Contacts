@@ -118,6 +118,10 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        guard let selectedContact = contactList?[indexPath.row] else { return }
+        vc.personCard = selectedContact
+        
          self.navigationController?.pushViewController(vc, animated: true)
     }
     
