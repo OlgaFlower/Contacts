@@ -10,7 +10,15 @@ import UIKit
 
 class DetailViewController: UIViewController {
     //MARK: - Outlets
+    @IBOutlet weak var contactImageView: UIImageView!
     @IBOutlet weak var addNewContactButton: UIButton!
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var firstNameTextfield: UITextField!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var lastNameTextfield: UITextField!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailTextfield: UITextField!
+    
     
     //MARK: - Properties
     var isNewContact = false
@@ -25,14 +33,19 @@ class DetailViewController: UIViewController {
         hideAddContactButton()
     }
     
+    
     //MARK: - Methods
     func hideAddContactButton() {
         print("isNewContact = \(isNewContact)")
         addNewContactButton.isHidden = !isNewContact
     }
     
+    
+    
     //MARK: - Actions
     @IBAction func doneButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+
