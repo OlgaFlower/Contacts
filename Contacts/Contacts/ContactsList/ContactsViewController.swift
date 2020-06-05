@@ -56,7 +56,7 @@ class ContactsViewController: UIViewController {
         //items text color
         navBar?.tintColor = .white
         //title text color
-        navBar?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navBar?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Chalkboard SE", size: 21)!]
         //transparency of the nav bar
         navBar?.setBackgroundImage(UIImage(), for: .default)
         navBar?.shadowImage = UIImage()

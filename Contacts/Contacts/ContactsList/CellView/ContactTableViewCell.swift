@@ -35,7 +35,7 @@ class ContactTableViewCell: UITableViewCell {
     
     func setupViews() {
         contactCellView.layer.cornerRadius = 10
-        contactImageView.layer.cornerRadius = 10
+        contactImageView.layer.cornerRadius = contactImageView.frame.width / 4
     }
     
 }
