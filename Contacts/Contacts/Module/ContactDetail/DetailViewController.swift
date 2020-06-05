@@ -28,7 +28,6 @@ class DetailViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(personCard)
         displayDetails()
     }
     

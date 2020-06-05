@@ -23,18 +23,8 @@ class ContactsViewController: UIViewController {
     let example = ExampleContacts.shared
 
     //MARK: - Lifecycle
-    
-    override func loadView() {
-        super.loadView()
-        print("load view condition flag = \(condition?.first?.flag)")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //****
-        condition = dataBase.loadConditionFromDB()
-        print("did load condition flag = \(condition?.first?.flag)")
         setupVC()
     }
     
