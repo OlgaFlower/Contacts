@@ -105,15 +105,15 @@
                                     <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQn-dB-t3D">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="noM-Ts-CIJ">
-                                                <rect key="frame" x="132" y="50" width="150" height="150"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="noM-Ts-CIJ">
+                                                <rect key="frame" x="107" y="35" width="200" height="200"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="7Vz-Cd-9Vw"/>
-                                                    <constraint firstAttribute="height" constant="150" id="Gif-uI-PY1"/>
+                                                    <constraint firstAttribute="width" constant="200" id="7Vz-Cd-9Vw"/>
+                                                    <constraint firstAttribute="height" constant="200" id="Gif-uI-PY1"/>
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8VX-le-XaF">
-                                                <rect key="frame" x="57" y="250" width="300" height="215"/>
+                                                <rect key="frame" x="57" y="270" width="300" height="215"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dxl-24-Vhm">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="66.333333333333329"/>
@@ -181,27 +181,44 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ga0-9h-JqJ">
-                                                <rect key="frame" x="57" y="515" width="300" height="37"/>
+                                                <rect key="frame" x="57" y="535" width="300" height="37"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="aMQ-cq-8ON"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
-                                                <state key="normal" title="Done">
+                                                <state key="normal" title="Save">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="doneButtonTapped:" destination="unh-Z1-gzM" eventType="touchUpInside" id="JZv-LK-k3M"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4y-T2-9Ta">
+                                                <rect key="frame" x="57" y="587" width="300" height="37"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="kmo-4q-gSg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelButtonTapped:" destination="unh-Z1-gzM" eventType="touchUpInside" id="Y0d-OU-v1F"/>
+                                                    <action selector="doneButtonTapped:" destination="unh-Z1-gzM" eventType="touchUpInside" id="JH1-KM-Ycv"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="x4y-T2-9Ta" firstAttribute="centerX" secondItem="qQn-dB-t3D" secondAttribute="centerX" id="5iH-EC-evH"/>
                                             <constraint firstItem="ga0-9h-JqJ" firstAttribute="centerX" secondItem="qQn-dB-t3D" secondAttribute="centerX" id="73y-vb-Fod"/>
-                                            <constraint firstItem="8VX-le-XaF" firstAttribute="top" secondItem="noM-Ts-CIJ" secondAttribute="bottom" constant="50" id="Bth-iv-JIB"/>
+                                            <constraint firstItem="8VX-le-XaF" firstAttribute="top" secondItem="noM-Ts-CIJ" secondAttribute="bottom" constant="35" id="Bth-iv-JIB"/>
                                             <constraint firstItem="ga0-9h-JqJ" firstAttribute="top" secondItem="8VX-le-XaF" secondAttribute="bottom" constant="50" id="UgL-qm-DJd"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ga0-9h-JqJ" secondAttribute="bottom" constant="100" id="ap0-0b-ydt"/>
-                                            <constraint firstItem="noM-Ts-CIJ" firstAttribute="top" secondItem="qQn-dB-t3D" secondAttribute="top" constant="50" id="fqs-lX-uld"/>
+                                            <constraint firstItem="noM-Ts-CIJ" firstAttribute="top" secondItem="qQn-dB-t3D" secondAttribute="top" constant="35" id="fqs-lX-uld"/>
+                                            <constraint firstItem="x4y-T2-9Ta" firstAttribute="top" secondItem="ga0-9h-JqJ" secondAttribute="bottom" constant="15" id="pm6-OK-67J"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="x4y-T2-9Ta" secondAttribute="bottom" constant="100" id="q3V-kA-EHR"/>
                                             <constraint firstItem="noM-Ts-CIJ" firstAttribute="centerX" secondItem="qQn-dB-t3D" secondAttribute="centerX" id="slc-4f-W0h"/>
                                             <constraint firstItem="8VX-le-XaF" firstAttribute="centerX" secondItem="qQn-dB-t3D" secondAttribute="centerX" id="xR2-fe-CLN"/>
                                         </constraints>
@@ -233,6 +250,7 @@
                     </view>
                     <connections>
                         <outlet property="addNewContactButton" destination="ga0-9h-JqJ" id="tBX-Ni-61z"/>
+                        <outlet property="cancelButton" destination="x4y-T2-9Ta" id="N2h-rF-iZ3"/>
                         <outlet property="contactImageView" destination="noM-Ts-CIJ" id="PO6-GE-MWu"/>
                         <outlet property="emailLabel" destination="lGE-qm-bTF" id="bad-gr-RFh"/>
                         <outlet property="emailTextfield" destination="YYo-Jx-gfx" id="Ded-0N-EvS"/>

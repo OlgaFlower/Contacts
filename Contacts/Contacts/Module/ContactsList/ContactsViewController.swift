@@ -18,7 +18,7 @@ class ContactsViewController: UIViewController {
     //MARK: - Properties
     private let presenter = ContactsPresenter()
     
-//    private var contactsList: [Person]?
+    private var contactsList: [Person]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,5 +101,19 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
          self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+}
+
+
+extension ContactsViewController {
+    
+    func restoreStartingExamples() {
+        
+    }
+    
+    func saveStartingExaples() {
+        let example = ExampleContacts.shared.createExampleContacts()
+        
+    }
     
 }

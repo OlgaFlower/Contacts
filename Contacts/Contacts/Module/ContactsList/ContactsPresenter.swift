@@ -21,10 +21,4 @@ class ContactsPresenter: ContactsPresenterProtocol {
         cell.displayEmail(email: "kindzyadzyu@gmail.com")
     }
     
-    
-    //    func configureContactCell(_ cell: ContactTableViewCellProtocol, indexPath: IndexPath, _ contacts: [Person]) {
-    //        cell.displayFullName(firstName: contacts[indexPath.row].firstName, lastName: contacts[indexPath.row].lastName)
-//        cell.displayEmail(email: contacts[indexPath.row].email)
-//    }
-    
 }

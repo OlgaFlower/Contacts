@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var contactImageView: UIImageView!
     @IBOutlet weak var addNewContactButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var firstNameTextfield: UITextField!
     @IBOutlet weak var lastNameLabel: UILabel!
@@ -26,42 +27,72 @@ class DetailViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavbarEditButton()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        hideAddContactButton()
+        setupUI()
     }
     
     
-    //MARK: - Methods
-    func hideAddContactButton() {
-        print("isNewContact = \(isNewContact)")
+    //MARK: - Setup UI
+    
+    func setupUI() {
+        setupAddContactButtons()
+        setupNavbarEditButton()
+        setupImage()
+    }
+    
+    //Handle "add new contact" buttons visibility
+    func setupAddContactButtons() {
         addNewContactButton.isHidden = !isNewContact
+        cancelButton.isHidden = !isNewContact
         if !addNewContactButton.isHidden {
-            addNewContactButton.newContactButtonSetup()
+            addNewContactButton.rounded()
+            cancelButton.rounded()
         }
     }
     
+    //Add "edit" button to navigation bar
     func setupNavbarEditButton() {
         let editImage = UIImage(named: "edit")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: editImage, style: .done, target: self, action: #selector(editTapped))
     }
     
+    //Setup new contact image
+    func setupImage() {
+        contactImageView.rounded()
+    }
+    
+    //MARK: - Actions
+    
     @objc func editTapped() {
         
     }
     
-    //MARK: - Actions
     @IBAction func doneButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        print("contact saved")
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        ("canceled")
+    }
+    
+}
+
+
+extension UIButton {
+func rounded() {
+    self.layer.borderWidth = 0.5
+    self.layer.cornerRadius = self.layer.frame.height / 2
+    self.layer.borderColor = UIColor.white.cgColor
     }
 }
 
-extension UIButton {
-func newContactButtonSetup() {
-        self.layer.borderWidth = 1.0
-        self.layer.cornerRadius = 5.0
-    self.layer.borderColor = UIColor.white.cgColor
+extension UIImageView {
+    func rounded() {
+        self.layer.cornerRadius = self.layer.frame.height / 3
     }
 }
