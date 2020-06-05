@@ -88,6 +88,44 @@
             </objects>
             <point key="canvasLocation" x="1069.5999999999999" y="104.7976011994003"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="PaP-nx-yhN">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="unh-Z1-gzM" customClass="DetailViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O16-se-VGy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ga0-9h-JqJ">
+                                <rect key="frame" x="137.5" y="563" width="100" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AvI-5X-PAR"/>
+                                    <constraint firstAttribute="width" constant="100" id="Rac-xM-Xhv"/>
+                                </constraints>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="unh-Z1-gzM" eventType="touchUpInside" id="JZv-LK-k3M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ga0-9h-JqJ" firstAttribute="centerX" secondItem="O16-se-VGy" secondAttribute="centerX" id="IIr-OM-TuA"/>
+                            <constraint firstItem="DmK-Mv-ZbS" firstAttribute="bottom" secondItem="ga0-9h-JqJ" secondAttribute="bottom" constant="54" id="gig-5W-xpZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DmK-Mv-ZbS"/>
+                    </view>
+                    <connections>
+                        <outlet property="addNewContactButton" destination="ga0-9h-JqJ" id="tBX-Ni-61z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KcO-5E-SLv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1973.5999999999999" y="105.69715142428787"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="wBx-uI-5F5">
             <objects>

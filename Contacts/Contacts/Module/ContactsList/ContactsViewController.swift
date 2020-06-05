@@ -64,13 +64,17 @@ class ContactsViewController: UIViewController {
         navBar?.isTranslucent = true
     }
     
-    
+    //MARK: - Actions
     @objc func resetTapped() {
         
     }
     
     @IBAction func addNewContactTapped(_ sender: Any) {
-        print("add new contact!")
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.isNewContact = true
+        self.present(vc, animated: true, completion: nil)
     }
     
 }
@@ -91,7 +95,11 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+         self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
 }
