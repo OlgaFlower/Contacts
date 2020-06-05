@@ -9,9 +9,10 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
     //MARK: - Outlets
     @IBOutlet weak var contactImageView: UIImageView!
-    @IBOutlet weak var addNewContactButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var firstNameTextfield: UITextField!
@@ -24,7 +25,6 @@ class DetailViewController: UIViewController {
     var isNewContact = false
     var personCard: Person?
     
-    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,6 @@ class DetailViewController: UIViewController {
         setupUI()
     }
     
-    
     //MARK: - Setup UI
     func setupUI() {
         setupAddContactButtons()
@@ -45,10 +44,10 @@ class DetailViewController: UIViewController {
     
     //Handle "add new contact" buttons visibility
     func setupAddContactButtons() {
-        addNewContactButton.isHidden = !isNewContact
+        saveButton.isHidden = !isNewContact
         cancelButton.isHidden = !isNewContact
-        if !addNewContactButton.isHidden {
-            addNewContactButton.rounded()
+        if !saveButton.isHidden {
+            saveButton.rounded()
             cancelButton.rounded()
         }
     }
@@ -76,7 +75,7 @@ class DetailViewController: UIViewController {
         
     }
     
-    @IBAction func doneButtonTapped(_ sender: Any) {
+    @IBAction func saveButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         print("contact saved")
     }
@@ -85,19 +84,4 @@ class DetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-}
-
-
-extension UIButton {
-func rounded() {
-    self.layer.borderWidth = 0.5
-    self.layer.cornerRadius = self.layer.frame.height / 2
-    self.layer.borderColor = UIColor.white.cgColor
-    }
-}
-
-extension UIImageView {
-    func rounded() {
-        self.layer.cornerRadius = self.layer.frame.height / 3
-    }
 }

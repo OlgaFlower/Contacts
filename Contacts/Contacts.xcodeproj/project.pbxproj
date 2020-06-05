@@ -11,6 +11,11 @@
 		8451C4E624896E36002A493D /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451C4E424896E36002A493D /* ContactTableViewCell.swift */; };
 		8451C4E724896E36002A493D /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8451C4E524896E36002A493D /* ContactTableViewCell.xib */; };
 		8451C4EA24898497002A493D /* ContactsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451C4E924898497002A493D /* ContactsPresenter.swift */; };
+		848B37DA248AB35500799D63 /* ContactsVC + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B37D9248AB35500799D63 /* ContactsVC + UITableView.swift */; };
+		848B37DC248AB40500799D63 /* ContactsVC + CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B37DB248AB40500799D63 /* ContactsVC + CoreData.swift */; };
+		848B37DE248AB4BD00799D63 /* ContactsVC + SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B37DD248AB4BD00799D63 /* ContactsVC + SetupUI.swift */; };
+		848B37E1248AB5A300799D63 /* UIButton + Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B37E0248AB5A300799D63 /* UIButton + Rounded.swift */; };
+		848B37E3248AB5E700799D63 /* UIImageView + Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B37E2248AB5E700799D63 /* UIImageView + Rounded.swift */; };
 		84DD98DA24896B7A00B09CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD98D924896B7A00B09CE9 /* AppDelegate.swift */; };
 		84DD98DC24896B7A00B09CE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD98DB24896B7A00B09CE9 /* SceneDelegate.swift */; };
 		84DD98DE24896B7A00B09CE9 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD98DD24896B7A00B09CE9 /* ContactsViewController.swift */; };
@@ -27,6 +32,11 @@
 		8451C4E424896E36002A493D /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		8451C4E524896E36002A493D /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		8451C4E924898497002A493D /* ContactsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsPresenter.swift; sourceTree = "<group>"; };
+		848B37D9248AB35500799D63 /* ContactsVC + UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactsVC + UITableView.swift"; sourceTree = "<group>"; };
+		848B37DB248AB40500799D63 /* ContactsVC + CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactsVC + CoreData.swift"; sourceTree = "<group>"; };
+		848B37DD248AB4BD00799D63 /* ContactsVC + SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactsVC + SetupUI.swift"; sourceTree = "<group>"; };
+		848B37E0248AB5A300799D63 /* UIButton + Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Rounded.swift"; sourceTree = "<group>"; };
+		848B37E2248AB5E700799D63 /* UIImageView + Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Rounded.swift"; sourceTree = "<group>"; };
 		84DD98D624896B7A00B09CE9 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DD98D924896B7A00B09CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84DD98DB24896B7A00B09CE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				84DD98DD24896B7A00B09CE9 /* ContactsViewController.swift */,
+				848B37D9248AB35500799D63 /* ContactsVC + UITableView.swift */,
+				848B37DB248AB40500799D63 /* ContactsVC + CoreData.swift */,
+				848B37DD248AB4BD00799D63 /* ContactsVC + SetupUI.swift */,
 				8451C4E924898497002A493D /* ContactsPresenter.swift */,
 				8451C4E8248983F5002A493D /* ContactCell */,
 			);
@@ -86,6 +99,15 @@
 				8451C4E524896E36002A493D /* ContactTableViewCell.xib */,
 			);
 			path = ContactCell;
+			sourceTree = "<group>";
+		};
+		848B37DF248AB57400799D63 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				848B37E0248AB5A300799D63 /* UIButton + Rounded.swift */,
+				848B37E2248AB5E700799D63 /* UIImageView + Rounded.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		84DD98CD24896B7A00B09CE9 = {
@@ -109,6 +131,7 @@
 			children = (
 				843F2DE4248A6EC800A2810E /* AppDelegates */,
 				84E691E2248A607D009BE36E /* ContactsExample */,
+				848B37DF248AB57400799D63 /* Common */,
 				84F990A4248A0B320013B9F5 /* Module */,
 				843F2DE1248A6E4500A2810E /* ContactsData */,
 				84DD98DF24896B7A00B09CE9 /* Main.storyboard */,
@@ -217,14 +240,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DD98E424896B7A00B09CE9 /* Contacts.xcdatamodeld in Sources */,
+				848B37DA248AB35500799D63 /* ContactsVC + UITableView.swift in Sources */,
+				848B37DC248AB40500799D63 /* ContactsVC + CoreData.swift in Sources */,
+				848B37DE248AB4BD00799D63 /* ContactsVC + SetupUI.swift in Sources */,
 				8451C4EA24898497002A493D /* ContactsPresenter.swift in Sources */,
 				8451C4E624896E36002A493D /* ContactTableViewCell.swift in Sources */,
 				84E691E1248A6079009BE36E /* ExampleContacts.swift in Sources */,
 				84DD98DE24896B7A00B09CE9 /* ContactsViewController.swift in Sources */,
+				848B37E3248AB5E700799D63 /* UIImageView + Rounded.swift in Sources */,
 				84DD98DA24896B7A00B09CE9 /* AppDelegate.swift in Sources */,
 				84DD98DC24896B7A00B09CE9 /* SceneDelegate.swift in Sources */,
 				843F2DE3248A6E6300A2810E /* ContactsDataService.swift in Sources */,
 				84F990A7248A0B720013B9F5 /* DetailViewController.swift in Sources */,
+				848B37E1248AB5A300799D63 /* UIButton + Rounded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

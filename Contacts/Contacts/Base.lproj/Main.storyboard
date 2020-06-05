@@ -191,7 +191,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="doneButtonTapped:" destination="unh-Z1-gzM" eventType="touchUpInside" id="JZv-LK-k3M"/>
+                                                    <action selector="saveButtonTapped:" destination="unh-Z1-gzM" eventType="touchUpInside" id="0eV-fe-GQu"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4y-T2-9Ta">
@@ -206,7 +206,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="cancelButtonTapped:" destination="unh-Z1-gzM" eventType="touchUpInside" id="Y0d-OU-v1F"/>
-                                                    <action selector="doneButtonTapped:" destination="unh-Z1-gzM" eventType="touchUpInside" id="JH1-KM-Ycv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -249,7 +248,6 @@
                         <viewLayoutGuide key="safeArea" id="DmK-Mv-ZbS"/>
                     </view>
                     <connections>
-                        <outlet property="addNewContactButton" destination="ga0-9h-JqJ" id="tBX-Ni-61z"/>
                         <outlet property="cancelButton" destination="x4y-T2-9Ta" id="N2h-rF-iZ3"/>
                         <outlet property="contactImageView" destination="noM-Ts-CIJ" id="PO6-GE-MWu"/>
                         <outlet property="emailLabel" destination="lGE-qm-bTF" id="bad-gr-RFh"/>
@@ -258,6 +256,7 @@
                         <outlet property="firstNameTextfield" destination="m7i-ch-PRE" id="pA9-5g-2I4"/>
                         <outlet property="lastNameLabel" destination="ZWA-R5-753" id="cNH-d2-eQy"/>
                         <outlet property="lastNameTextfield" destination="wvo-S9-aPK" id="XvA-nS-xfN"/>
+                        <outlet property="saveButton" destination="ga0-9h-JqJ" id="5bC-Up-Lzq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcO-5E-SLv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
