@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
     
     //MARK: - Properties
     var isNewContact = false
+    var isEditableMode = false
     var personCard: Person?
     
     //MARK: - Lifecycle
@@ -32,6 +33,7 @@ class DetailViewController: UIViewController {
         
         setupTextfields()
         self.hideKeyboardIfTappedOutTextfield()
+        editContactCard()
         
         //add observers for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -54,9 +56,19 @@ class DetailViewController: UIViewController {
         saveButton.isHidden = !isNewContact
         cancelButton.isHidden = !isNewContact
         if !saveButton.isHidden {
-            saveButton.rounded()
-            cancelButton.rounded()
+            roundButtons()
         }
+    }
+    
+    //Add corner radius
+    func roundButtons() {
+        saveButton.rounded()
+        cancelButton.rounded()
+    }
+    
+    func displaySaveCancelButtons() {
+        saveButton.isHidden = false
+        cancelButton.isHidden = false
     }
     
     //Add "edit" button to navigation bar
@@ -87,7 +99,16 @@ class DetailViewController: UIViewController {
     }
     
     @objc func editTapped() {
-        
+        print("edit tapped")
+        isEditableMode = !isEditableMode
+        editContactCard()
+        if isEditableMode {
+            displaySaveCancelButtons()
+            roundButtons()
+        } else {
+            setupAddContactButtons()
+            
+        }
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {

@@ -28,6 +28,30 @@ extension DetailViewController: UITextFieldDelegate {
     func disableAutocorrection(_ textfield: UITextField) {
         textfield.autocorrectionType = .no
     }
+
+    //Switch editable mode for text fields
+    func editContactCard() {
+        if !isNewContact || !isEditableMode {
+            disableTextfieldEditing(firstNameTextfield)
+            disableTextfieldEditing(lastNameTextfield)
+            disableTextfieldEditing(emailTextfield)
+        }
+        if isNewContact || isEditableMode {
+            enableTextfieldEditing(firstNameTextfield)
+            enableTextfieldEditing(lastNameTextfield)
+            enableTextfieldEditing(emailTextfield)
+        }
+    }
+    
+    //Disable text field editing
+    func disableTextfieldEditing(_ textfield: UITextField) {
+        textfield.isEnabled = false
+    }
+    
+    //Enable text field editing
+    func enableTextfieldEditing(_ textfield: UITextField) {
+        textfield.isEnabled = true
+    }
     
     //MARK: - Handle keyboard
     //show keyboard and scroll view up
