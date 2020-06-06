@@ -117,17 +117,7 @@ class DetailViewController: UIViewController {
         emailTextfield.text = personCard?.email
     }
     
-    func addNewContact() {
-        let contact = Person(context: dataBase.context)
-        
-        contact.firstName = firstNameTextfield.text
-        contact.lastName = lastNameTextfield.text
-        contact.email = emailTextfield.text
-        
-        print(contact)
-        
-        dataBase.saveToDB()
-    }
+    
     
     //MARK: - Actions
     

@@ -47,9 +47,12 @@ class ContactsViewController: UIViewController{
         tableView.reloadData()
     }
     
-    //Reset to defaults
+    //Reset to default contacts' list 
     @objc func resetTapped() {
-        
+        dataBase.eraseContactListFromDB()
+        createDefaultContactList()
+        loadContacts()
+        tableView.reloadData()
     }
     
     //Add new contact

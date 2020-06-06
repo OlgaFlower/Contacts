@@ -18,4 +18,14 @@ extension DetailViewController {
         return false
     }
     
+    func addNewContact() {
+        let contact = Person(context: dataBase.context)
+        
+        contact.firstName = firstNameTextfield.text
+        contact.lastName = lastNameTextfield.text
+        contact.email = emailTextfield.text
+        
+        dataBase.saveToDB()
+    }
+    
 }

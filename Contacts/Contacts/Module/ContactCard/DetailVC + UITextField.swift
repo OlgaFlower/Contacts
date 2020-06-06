@@ -10,7 +10,6 @@ import UIKit
 
 extension DetailViewController: UITextFieldDelegate {
     
-    
     func setupTextfields() {
         firstNameTextfield.delegate = self
         lastNameTextfield.delegate = self
