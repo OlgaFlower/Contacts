@@ -29,6 +29,13 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayDetails()
+        
+        setupTextfields()
+        self.hideKeyboardIfTappedOutTextfield()
+        
+        //add observers for keyboard
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +78,14 @@ class DetailViewController: UIViewController {
     }
     
     //MARK: - Actions
+    @objc func keyboardWillShow(notification: NSNotification) {
+        showKeyboard(notification)
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        hideKeyboard(notification)
+    }
+    
     @objc func editTapped() {
         
     }
