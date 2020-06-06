@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var lastNameTextfield: UITextField!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var emailTextfield: UITextField!
+    @IBOutlet weak var warningLabel: UILabel!
     
     //MARK: - Properties
     var isNewContact = false
@@ -49,6 +50,21 @@ class DetailViewController: UIViewController {
         setupAddContactButtons()
         setupNavbarEditButton()
         setupImage()
+        setupLabels()
+        setupButtons()
+    }
+    
+    //MARK: Labels
+    func setupLabels() {
+        firstNameLabel.text = ContactCard.firstName.rawValue
+        lastNameLabel.text = ContactCard.lastName.rawValue
+        emailLabel.text = ContactCard.email.rawValue
+    }
+    
+    //MARK: Buttons
+    func setupButtons() {
+        saveButton.setTitle(ContactCard.save.rawValue, for: .normal)
+        cancelButton.setTitle(ContactCard.cancel.rawValue, for: .normal)
     }
     
     //Handle "add new contact" buttons visibility
@@ -71,12 +87,14 @@ class DetailViewController: UIViewController {
         cancelButton.isHidden = false
     }
     
+    //MARK: Navigation bar
     //Add "edit" button to navigation bar
     func setupNavbarEditButton() {
         let editImage = UIImage(named: "edit")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: editImage, style: .done, target: self, action: #selector(editTapped))
     }
     
+    //MARK: Contact image
     //Setup new contact image
     func setupImage() {
         contactImageView.rounded()
