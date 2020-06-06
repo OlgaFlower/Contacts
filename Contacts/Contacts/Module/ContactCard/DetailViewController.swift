@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
     //MARK: - Properties
     var isNewContact = false
     var isEditableMode = false
+    let dataBase = ContactsDataService.shared
     var personCard: Person?
     
     //MARK: - Lifecycle
@@ -39,6 +40,10 @@ class DetailViewController: UIViewController {
         //add observers for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,8 +87,7 @@ class DetailViewController: UIViewController {
         cancelButton.rounded()
     }
     
-    func displaySaveCancelButtons() {
-        saveButton.isHidden = false
+    func displayCancelButtons() {
         cancelButton.isHidden = false
     }
     
@@ -107,6 +111,18 @@ class DetailViewController: UIViewController {
         emailTextfield.text = personCard?.email
     }
     
+    func addNewContact() {
+        let contact = Person(context: dataBase.context)
+        
+        contact.firstName = firstNameTextfield.text
+        contact.lastName = lastNameTextfield.text
+        contact.email = emailTextfield.text
+        
+        print(contact)
+        
+        dataBase.saveToDB()
+    }
+    
     //MARK: - Actions
     @objc func keyboardWillShow(notification: NSNotification) {
         showKeyboard(notification)
@@ -121,7 +137,7 @@ class DetailViewController: UIViewController {
         isEditableMode = !isEditableMode
         editContactCard()
         if isEditableMode {
-            displaySaveCancelButtons()
+            displayCancelButtons()
             roundButtons()
         } else {
             setupAddContactButtons()
@@ -130,13 +146,17 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        print(emailTextfield.text)
-        print(checkForEmptyFields())
+        
         if checkForEmptyFields() {
             warningLabel.text = ContactCard.warning.rawValue
+        } else {
+            addNewContact()
+            
+            //Send notification to update contact list
+            self.dismiss(animated: true) {
+                NotificationCenter.default.post(name: Notification.Name("ContactLisUpdater"), object: nil)
+            }
         }
-        
-//        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {

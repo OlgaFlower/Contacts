@@ -6,9 +6,11 @@
 //  Copyright © 2020 Olha Bereziuk. All rights reserved.
 //
 
+
+
 import UIKit
 
-class ContactsViewController: UIViewController {
+class ContactsViewController: UIViewController{
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -26,6 +28,9 @@ class ContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVC()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactList(notification:)), name: Notification.Name("ContactLisUpdater"), object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,9 +38,14 @@ class ContactsViewController: UIViewController {
         displayContacts()
     }
     
-   
+    
     
     //MARK: - Actions
+    
+    //Contact list updater
+    @objc func updateContactList(notification: Notification) {
+        tableView.reloadData()
+    }
     
     //Reset to defaults
     @objc func resetTapped() {
