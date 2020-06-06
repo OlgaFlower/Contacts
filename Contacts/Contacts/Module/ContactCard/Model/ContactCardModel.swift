@@ -12,7 +12,7 @@ enum ContactCard: String {
     case firstName = "First name"
     case lastName = "Last name"
     case email = "Email"
-    case required = "* At least one field must be filled"
+    case warning = "* At least one field must be filled"
     case save = "Save"
     case cancel = "Cancel"
 }

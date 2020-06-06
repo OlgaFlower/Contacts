@@ -53,6 +53,11 @@ extension DetailViewController: UITextFieldDelegate {
         textfield.isEnabled = true
     }
     
+    //Hide empty field warning
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        warningLabel.text = ""
+    }
+    
     //MARK: - Handle keyboard
     //show keyboard and scroll view up
     func showKeyboard(_ notification: NSNotification) {

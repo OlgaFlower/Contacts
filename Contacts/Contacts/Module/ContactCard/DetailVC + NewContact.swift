@@ -10,6 +10,12 @@ import Foundation
 
 extension DetailViewController {
     
-    
+    func checkForEmptyFields() -> Bool  {
+        let empty = ""
+        if firstNameTextfield.text == empty && lastNameTextfield.text == empty && emailTextfield.text == empty {
+            return true
+        }
+        return false
+    }
     
 }

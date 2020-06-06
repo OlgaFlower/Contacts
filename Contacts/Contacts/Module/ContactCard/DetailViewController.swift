@@ -130,8 +130,13 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        print("contact saved")
+        print(emailTextfield.text)
+        print(checkForEmptyFields())
+        if checkForEmptyFields() {
+            warningLabel.text = ContactCard.warning.rawValue
+        }
+        
+//        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
