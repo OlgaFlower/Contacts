@@ -23,14 +23,16 @@ class ContactsViewController: UIViewController{
     let dataBase = ContactsDataService.shared
     var condition: [DefaultCondition]? //flag for displaying default starting contacts
     let example = ExampleContacts.shared
+    var index: Int?
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVC()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactList(notification:)), name: Notification.Name("ContactLisUpdater"), object: nil)
-        
+        print(condition?.first?.flag)
+        //Observers
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactList(notification:)), name: .reloadContactList, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactCard(notification:)), name: .updatedContactCard, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,10 +40,22 @@ class ContactsViewController: UIViewController{
         displayContacts()
     }
     
+    //MARK: - Deinit
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .reloadContactList, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .updatedContactCard, object: nil)
+    }
     
     
     //MARK: - Actions
-    
+    @objc func updateContactCard(notification: Notification) {
+        guard let index = index else { return }
+        print(index)
+
+        guard let updatedContact = notification.object as? Person else {return}
+        print("Contact list updated with \(updatedContact)")
+    }
+
     //Contact list updater
     @objc func updateContactList(notification: Notification) {
         tableView.reloadData()
@@ -50,6 +64,7 @@ class ContactsViewController: UIViewController{
     //Reset to default contacts' list 
     @objc func resetTapped() {
         dataBase.eraseContactListFromDB()
+        contactList = nil
         createDefaultContactList()
         loadContacts()
         tableView.reloadData()

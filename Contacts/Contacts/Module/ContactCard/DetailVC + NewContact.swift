@@ -10,6 +10,16 @@ import Foundation
 
 extension DetailViewController {
     
+    //Send notification to update contact list
+    func postReloadContactListNotification() {
+        NotificationCenter.default.post(name: .reloadContactList , object: nil)
+    }
+    
+    //Send updated contact card
+    func postUpdatedContactCardNotification() {
+        NotificationCenter.default.post(name: .updatedContactCard , object: personCard)
+    }
+    
     func checkForEmptyFields() -> Bool  {
         let empty = ""
         if firstNameTextfield.text == empty && lastNameTextfield.text == empty && emailTextfield.text == empty {

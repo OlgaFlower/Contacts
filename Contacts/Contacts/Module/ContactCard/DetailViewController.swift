@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
     //MARK: - Properties
     var isNewContact = false
     var isEditableMode = false
+    var isContactUpdated = false
     let dataBase = ContactsDataService.shared
     var personCard: Person?
     
@@ -35,7 +36,7 @@ class DetailViewController: UIViewController {
         
         setupTextfields()
         self.hideKeyboardIfTappedOutTextfield()
-        editContactCard()
+        enableContactCardToBeEdited()
         
         //add observers for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -56,8 +57,6 @@ class DetailViewController: UIViewController {
         setupButtons()
         displayTextfieldBorders()
     }
-    
-    
     
     //MARK: Labels
     func setupLabels() {
@@ -117,8 +116,6 @@ class DetailViewController: UIViewController {
         emailTextfield.text = personCard?.email
     }
     
-    
-    
     //MARK: - Actions
     
     //Keyboards
@@ -133,28 +130,33 @@ class DetailViewController: UIViewController {
     //Edit
     @objc func editTapped() {
         isEditableMode = !isEditableMode
-        editContactCard()
+        enableContactCardToBeEdited()
         if isEditableMode {
             displayCheckmarkIcon()
             showTextfieldBorders()
         } else {
             displayEditIcon()
             hideTextfieldBorders()
+            updatePersonCard()
+             postUpdatedContactCardNotification()
+            self.navigationController?.popViewController(animated: true)
         }
-        
+    }
+    
+    func updatePersonCard() {
+        personCard?.email = emailTextfield.text
+        personCard?.firstName = firstNameTextfield.text
+        personCard?.lastName = lastNameTextfield.text
     }
     
     //Save
     @IBAction func saveButtonTapped(_ sender: Any) {
-        
         if checkForEmptyFields() {
             warningLabel.text = ContactCard.warning.rawValue
         } else {
             addNewContact()
-            
-            //Send notification to update contact list
             self.dismiss(animated: true) {
-                NotificationCenter.default.post(name: Notification.Name("ContactLisUpdater"), object: nil)
+                self.postReloadContactListNotification()
             }
         }
     }

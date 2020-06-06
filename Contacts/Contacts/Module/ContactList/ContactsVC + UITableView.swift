@@ -31,6 +31,7 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
         
         guard let selectedContact = contactList?[indexPath.row] else { return }
         vc.personCard = selectedContact
+        self.index = indexPath.row
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

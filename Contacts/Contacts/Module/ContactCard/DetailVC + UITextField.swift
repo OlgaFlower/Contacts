@@ -49,7 +49,7 @@ extension DetailViewController: UITextFieldDelegate {
     }
 
     //Switch editable mode for text fields
-    func editContactCard() {
+    func enableContactCardToBeEdited() {
         if !isNewContact || !isEditableMode {
             disableTextfieldEditing(firstNameTextfield)
             disableTextfieldEditing(lastNameTextfield)

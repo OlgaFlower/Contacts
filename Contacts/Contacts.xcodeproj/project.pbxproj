@@ -21,6 +21,7 @@
 		848B37E3248AB5E700799D63 /* UIImageView + Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B37E2248AB5E700799D63 /* UIImageView + Rounded.swift */; };
 		848B37E5248B400B00799D63 /* DetailVC + UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B37E4248B400B00799D63 /* DetailVC + UITextField.swift */; };
 		848B37E7248B416E00799D63 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B37E6248B416E00799D63 /* DetailPresenter.swift */; };
+		84A7EE65248BDE4200F6F12B /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7EE64248BDE4200F6F12B /* Notification.swift */; };
 		84DD98DA24896B7A00B09CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD98D924896B7A00B09CE9 /* AppDelegate.swift */; };
 		84DD98DC24896B7A00B09CE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD98DB24896B7A00B09CE9 /* SceneDelegate.swift */; };
 		84DD98DE24896B7A00B09CE9 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD98DD24896B7A00B09CE9 /* ContactsViewController.swift */; };
@@ -47,6 +48,7 @@
 		848B37E2248AB5E700799D63 /* UIImageView + Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Rounded.swift"; sourceTree = "<group>"; };
 		848B37E4248B400B00799D63 /* DetailVC + UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVC + UITextField.swift"; sourceTree = "<group>"; };
 		848B37E6248B416E00799D63 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		84A7EE64248BDE4200F6F12B /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		84DD98D624896B7A00B09CE9 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DD98D924896B7A00B09CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84DD98DB24896B7A00B09CE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				848B37E0248AB5A300799D63 /* UIButton + Rounded.swift */,
 				848B37E2248AB5E700799D63 /* UIImageView + Rounded.swift */,
 				8410CC92248B478900E6C1F2 /* UIViewController + Keyboard.swift */,
+				84A7EE64248BDE4200F6F12B /* Notification.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A7EE65248BDE4200F6F12B /* Notification.swift in Sources */,
 				8410CC93248B478900E6C1F2 /* UIViewController + Keyboard.swift in Sources */,
 				848B37E5248B400B00799D63 /* DetailVC + UITextField.swift in Sources */,
 				84DD98E424896B7A00B09CE9 /* Contacts.xcdatamodeld in Sources */,
