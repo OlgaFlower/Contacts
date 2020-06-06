@@ -41,9 +41,6 @@ class DetailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,10 +50,11 @@ class DetailViewController: UIViewController {
     //MARK: - Setup UI
     func setupUI() {
         setupAddContactButtons()
-        setupNavbarEditButton()
+        displayEditIcon()
         setupImage()
         setupLabels()
         setupButtons()
+        hideTextfieldBorders()
     }
     
     //MARK: Labels
@@ -92,9 +90,15 @@ class DetailViewController: UIViewController {
     }
     
     //MARK: Navigation bar
-    //Add "edit" button to navigation bar
-    func setupNavbarEditButton() {
-        let editImage = UIImage(named: "edit")
+    //Display "Edit" icon
+    func displayEditIcon() {
+        let editImage = UIImage(named: "edit-white")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: editImage, style: .done, target: self, action: #selector(editTapped))
+    }
+    
+    //Display "Checkmark" icon
+    func displayCheckmarkIcon() {
+        let editImage = UIImage(named: "checkmark")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: editImage, style: .done, target: self, action: #selector(editTapped))
     }
     
@@ -124,6 +128,8 @@ class DetailViewController: UIViewController {
     }
     
     //MARK: - Actions
+    
+    //Keyboards
     @objc func keyboardWillShow(notification: NSNotification) {
         showKeyboard(notification)
     }
@@ -132,19 +138,21 @@ class DetailViewController: UIViewController {
         hideKeyboard(notification)
     }
     
+    //Edit
     @objc func editTapped() {
-        print("edit tapped")
         isEditableMode = !isEditableMode
         editContactCard()
         if isEditableMode {
-            displayCancelButtons()
-            roundButtons()
+            displayCheckmarkIcon()
+            showTextfieldBorders()
         } else {
-            setupAddContactButtons()
-            
+            displayEditIcon()
+            hideTextfieldBorders()
         }
+        
     }
     
+    //Save
     @IBAction func saveButtonTapped(_ sender: Any) {
         
         if checkForEmptyFields() {
@@ -159,7 +167,9 @@ class DetailViewController: UIViewController {
         }
     }
     
+    //Cancel
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        print("canceled")
         self.dismiss(animated: true, completion: nil)
     }
     

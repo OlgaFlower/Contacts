@@ -19,6 +19,18 @@ extension DetailViewController: UITextFieldDelegate {
         disableDetailTextfieldAutocorrection()
     }
     
+    func hideTextfieldBorders() {
+        firstNameTextfield.borderStyle = .none
+        lastNameTextfield.borderStyle = .none
+        emailTextfield.borderStyle = .none
+    }
+    
+    func showTextfieldBorders() {
+        firstNameTextfield.borderStyle = .roundedRect
+        lastNameTextfield.borderStyle = .roundedRect
+        emailTextfield.borderStyle = .roundedRect
+    }
+    
     func disableDetailTextfieldAutocorrection() {
         disableAutocorrection(firstNameTextfield)
         disableAutocorrection(lastNameTextfield)
