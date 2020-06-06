@@ -54,8 +54,10 @@ class DetailViewController: UIViewController {
         setupImage()
         setupLabels()
         setupButtons()
-        hideTextfieldBorders()
+        displayTextfieldBorders()
     }
+    
+    
     
     //MARK: Labels
     func setupLabels() {

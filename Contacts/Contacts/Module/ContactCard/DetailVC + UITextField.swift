@@ -19,6 +19,14 @@ extension DetailViewController: UITextFieldDelegate {
         disableDetailTextfieldAutocorrection()
     }
     
+    func displayTextfieldBorders() {
+        if isNewContact {
+            showTextfieldBorders()
+        } else {
+            hideTextfieldBorders()
+        }
+    }
+    
     func hideTextfieldBorders() {
         firstNameTextfield.borderStyle = .none
         lastNameTextfield.borderStyle = .none
