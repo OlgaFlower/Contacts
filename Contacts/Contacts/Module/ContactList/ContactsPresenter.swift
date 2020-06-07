@@ -18,5 +18,4 @@ class ContactsPresenter: ContactsPresenterProtocol {
         cell.displayEmail(email: contacts.email)
         cell.displayFullName(firstName: contacts.firstName, lastName: contacts.lastName)
     }
-    
 }

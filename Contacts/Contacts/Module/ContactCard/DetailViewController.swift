@@ -166,7 +166,6 @@ class DetailViewController: UIViewController {
     
     //Cancel
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        print("canceled")
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -19,7 +19,6 @@ extension ContactsViewController {
         tableView.reloadData()
     }
     
-    
     func resetToDefault() {
         defaults.set(false, forKey: "notFirstLaunch")
     }
@@ -28,12 +27,7 @@ extension ContactsViewController {
         defaults.set(true, forKey: "notFirstLaunch")
     }
     
-    
-    
     func displayContacts() {
-        let flag = defaults.bool(forKey: "notFirstLaunch")
-        print("not first launch flag? = \(flag)")
-        
         if defaults.bool(forKey: "notFirstLaunch") == false {
             createDefaultContactList()
             //Load examples
@@ -44,7 +38,6 @@ extension ContactsViewController {
             contactList = dataBase.loadContactsFromDB()
         }
     }
-    
     
     //Load contacts
     func loadContacts() {

@@ -52,5 +52,4 @@ extension ContactsViewController {
         navBar?.shadowImage = UIImage()
         navBar?.isTranslucent = true
     }
-    
 }

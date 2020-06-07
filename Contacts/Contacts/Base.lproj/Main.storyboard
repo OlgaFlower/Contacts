@@ -208,7 +208,7 @@
                                                     <action selector="cancelButtonTapped:" destination="unh-Z1-gzM" eventType="touchUpInside" id="Y0d-OU-v1F"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZh-pJ-btS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZh-pJ-btS">
                                                 <rect key="frame" x="57" y="553" width="300" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="f7k-aN-CCE"/>

@@ -40,11 +40,10 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete {
             guard let contact = contactList?[indexPath.row] else { return }
             dataBase.context.delete(contact)
-            contactList?.remove(at: indexPath.row)
             dataBase.saveToDB()
+            contactList?.remove(at: indexPath.row)
             tableView.reloadData()
         }
     }
-    
 }
 

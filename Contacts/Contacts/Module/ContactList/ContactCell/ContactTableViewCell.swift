@@ -15,12 +15,13 @@ import UIKit
 
 class ContactTableViewCell: UITableViewCell {
     
+    //MARK: - Outlets
     @IBOutlet weak var contactCellView: UIView!
     @IBOutlet weak var contactImageView: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
-
+    //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -28,6 +29,7 @@ class ContactTableViewCell: UITableViewCell {
         setupViews()
     }
 
+    //MARK: - Methods
     func resetContent() {
         fullNameLabel.text = nil
         emailLabel.text = nil

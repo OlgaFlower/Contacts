@@ -6,8 +6,6 @@
 //  Copyright © 2020 Olha Bereziuk. All rights reserved.
 //
 
-
-
 import UIKit
 
 class ContactsViewController: UIViewController{
@@ -22,11 +20,8 @@ class ContactsViewController: UIViewController{
     var contactList: [Person]?
     let dataBase = ContactsDataService.shared
     let example = ExampleContacts.shared
-    
     let defaults = UserDefaults.standard
 
-    
-    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +31,6 @@ class ContactsViewController: UIViewController{
         //Observers
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactList(notification:)), name: .reloadContactList, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactCard(notification:)), name: .updatedContactCard, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
     }
     
     //MARK: - Deinit
@@ -62,7 +52,6 @@ class ContactsViewController: UIViewController{
     //Reset to default contacts' list 
     @objc func resetTapped() {
         removeAllContacts()
-        print("reset tapped")
     }
     
     //Add new contact
