@@ -14,9 +14,9 @@ extension ContactsViewController {
     
     func setupVC() {
         setupTableView()
-        setupSearchBar()
         setupResetNavBarButton()
         setupNavbarAppearence()
+        setupSearchController()
     }
     
     //Setup table view
@@ -26,12 +26,6 @@ extension ContactsViewController {
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "ContactTableViewCell", bundle: nil), forCellReuseIdentifier: "contactCell")
         tableView.backgroundColor = .clear
-    }
-    
-    //Setup search bar
-    func setupSearchBar() {
-        searchBar.backgroundImage = UIImage()
-        searchBar.searchTextField.leftView?.tintColor = .white
     }
     
     //Setup "Reset" button

@@ -17,6 +17,14 @@ class ContactsViewController: UIViewController{
     
     //MARK: - Properties
     let presenter = ContactsPresenter()
+    let searchController = UISearchController(searchResultsController: nil)
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
+    var filteredContactList: [Person]? //for search result
     var contactList: [Person]?
     let dataBase = ContactsDataService.shared
     let example = ExampleContacts.shared

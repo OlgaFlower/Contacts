@@ -13,13 +13,26 @@ import UIKit
 extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredContactList?.count ?? 0
+        }
         return contactList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
         cell.layer.backgroundColor = UIColor.clear.cgColor
-        guard let contacts = contactList else { return UITableViewCell() }
+        
+        let list: [Person]?
+        
+        if isFiltering {
+            list = filteredContactList
+        }
+        else {
+            list = contactList
+        }
+        
+        guard let contacts = list else { return UITableViewCell() }
         presenter.configureContactCell(cell, contacts[indexPath.row])
         
         return cell
