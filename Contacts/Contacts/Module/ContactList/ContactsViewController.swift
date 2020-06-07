@@ -21,15 +21,12 @@ class ContactsViewController: UIViewController{
     let presenter = ContactsPresenter()
     var contactList: [Person]?
     let dataBase = ContactsDataService.shared
-    var condition: [DefaultCondition]? //flag for displaying default starting contacts
     let example = ExampleContacts.shared
-    var index: Int?
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVC()
-        print(condition?.first?.flag)
         //Observers
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactList(notification:)), name: .reloadContactList, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactCard(notification:)), name: .updatedContactCard, object: nil)
@@ -48,13 +45,7 @@ class ContactsViewController: UIViewController{
     
     
     //MARK: - Actions
-    @objc func updateContactCard(notification: Notification) {
-        guard let index = index else { return }
-        print(index)
-
-        guard let updatedContact = notification.object as? Person else {return}
-        print("Contact list updated with \(updatedContact)")
-    }
+    @objc func updateContactCard(notification: Notification) { }
 
     //Contact list updater
     @objc func updateContactList(notification: Notification) {
@@ -63,11 +54,7 @@ class ContactsViewController: UIViewController{
     
     //Reset to default contacts' list 
     @objc func resetTapped() {
-        dataBase.eraseContactListFromDB()
-        contactList = nil
-        createDefaultContactList()
-        loadContacts()
-        tableView.reloadData()
+        
     }
     
     //Add new contact

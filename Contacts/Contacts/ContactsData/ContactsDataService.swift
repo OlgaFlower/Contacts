@@ -37,18 +37,7 @@ class ContactsDataService {
         return nil
     }
     
-    //MARK: - Load condition from DB
-    func loadConditionFromDB() -> [DefaultCondition]? {
-        let request: NSFetchRequest<DefaultCondition> = DefaultCondition.fetchRequest()
-        do {
-            let condition = try context.fetch(request)
-            return condition
-        } catch {
-            print("Error fetching data from DB \( error)")
-        }
-        return nil
-    }
-    
+    //MARK: - Erase contacts base
     func eraseContactListFromDB() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: request)

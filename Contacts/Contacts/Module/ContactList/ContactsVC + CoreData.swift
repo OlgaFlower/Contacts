@@ -13,16 +13,9 @@ import UIKit
 extension ContactsViewController {
     
     func displayContacts() {
-        condition = dataBase.loadConditionFromDB()
-        if condition?.first?.flag == nil {
-            createDefaultContactList()
-            //Load examples
-            loadContacts()
-            changeFlagCondition()
-        } else {
-            //Load contacts
-            loadContacts()
-        }
+        createDefaultContactList()
+        //Load examples
+        loadContacts()
     }
     
     
@@ -44,13 +37,6 @@ extension ContactsViewController {
         person.email = contactDetails.email
         person.firstName = contactDetails.firstName
         person.lastName = contactDetails.lastName
-        dataBase.saveToDB()
-    }
-    
-    //Change flag condition
-    func changeFlagCondition() {
-        let updatedFlag = DefaultCondition(context: dataBase.context)
-        updatedFlag.flag = true
         dataBase.saveToDB()
     }
 }
