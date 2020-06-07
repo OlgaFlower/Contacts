@@ -10,6 +10,19 @@ import Foundation
 
 extension DetailViewController {
     
+    //Switch posibility to edit textFields text
+    func switchTextfieldsToEditCardMode() {
+        isEditableMode = !isEditableMode
+        enableContactCardToBeEdited()
+    }
+    
+    //Update contact card
+    func updatePersonCard() {
+        personCard?.email = emailTextfield.text
+        personCard?.firstName = firstNameTextfield.text
+        personCard?.lastName = lastNameTextfield.text
+    }
+    
     //Send notification to update contact list
     func postReloadContactListNotification() {
         NotificationCenter.default.post(name: .reloadContactList , object: nil)

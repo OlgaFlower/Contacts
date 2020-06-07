@@ -55,6 +55,7 @@ class ContactsViewController: UIViewController{
 
     //Contact list updater
     @objc func updateContactList(notification: Notification) {
+        contactList = dataBase.loadContactsFromDB()
         tableView.reloadData()
     }
     

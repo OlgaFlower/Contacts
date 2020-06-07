@@ -129,31 +129,34 @@ class DetailViewController: UIViewController {
     
     //Edit
     @objc func editTapped() {
-        isEditableMode = !isEditableMode
-        enableContactCardToBeEdited()
+        switchTextfieldsToEditCardMode()
+        
         if isEditableMode {
             displayCheckmarkIcon()
             showTextfieldBorders()
-        } else {
-            displayEditIcon()
-            hideTextfieldBorders()
-            updatePersonCard()
-             postUpdatedContactCardNotification()
-            self.navigationController?.popViewController(animated: true)
         }
-    }
-    
-    func updatePersonCard() {
-        personCard?.email = emailTextfield.text
-        personCard?.firstName = firstNameTextfield.text
-        personCard?.lastName = lastNameTextfield.text
+        else {
+            if checkForEmptyFields() {
+                warningLabel.text = ContactCard.warning.rawValue
+                switchTextfieldsToEditCardMode()
+                
+            }
+            else {
+                displayEditIcon()
+                hideTextfieldBorders()
+                updatePersonCard()
+                postUpdatedContactCardNotification()
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     //Save
     @IBAction func saveButtonTapped(_ sender: Any) {
         if checkForEmptyFields() {
             warningLabel.text = ContactCard.warning.rawValue
-        } else {
+        }
+        else {
             addNewContact()
             self.dismiss(animated: true) {
                 self.postReloadContactListNotification()

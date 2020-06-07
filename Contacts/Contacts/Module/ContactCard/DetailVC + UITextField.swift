@@ -21,7 +21,8 @@ extension DetailViewController: UITextFieldDelegate {
     func displayTextfieldBorders() {
         if isNewContact {
             showTextfieldBorders()
-        } else {
+        }
+        else {
             hideTextfieldBorders()
         }
     }

@@ -32,7 +32,8 @@ extension ContactsViewController {
             //Load examples
             loadContacts()
             changeFirstLaunchFlag()
-        } else {
+        }
+        else {
             contactList = dataBase.loadContactsFromDB()
         }
     }
