@@ -12,6 +12,10 @@ import UIKit
 
 extension ContactsViewController {
     
+    func sortContactList(_ list: [Person]?) {
+        
+    }
+    
     func removeAllContacts() {
         dataBase.eraseContactListFromDB(contactList)
         resetToDefault()

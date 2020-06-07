@@ -25,14 +25,18 @@ class ContactsDataService {
         }
     }
     
-    //MARK: - Load items from DB
+    //MARK: - Load contacts from DB, sorted alphabetically by name
     func loadContactsFromDB() -> [Person]? {
         let request: NSFetchRequest<Person> = Person.fetchRequest()
+        let sort = NSSortDescriptor(key: "firstName", ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
+        request.sortDescriptors = [sort]
+        
         do {
-            let itemsArr = try context.fetch(request)
-            return itemsArr
-        } catch {
-            print("Error fetching data from DB \( error)")
+            let sortedList = try context.fetch(request)
+            return sortedList
+        }
+        catch {
+            print("Error fetching/sorting data from DB \( error)")
         }
         return nil
     }
