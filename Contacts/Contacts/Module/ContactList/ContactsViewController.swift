@@ -22,11 +22,17 @@ class ContactsViewController: UIViewController{
     var contactList: [Person]?
     let dataBase = ContactsDataService.shared
     let example = ExampleContacts.shared
+    
+    let defaults = UserDefaults.standard
 
+    
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVC()
+        displayContacts()
+        
         //Observers
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactList(notification:)), name: .reloadContactList, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactCard(notification:)), name: .updatedContactCard, object: nil)
@@ -34,7 +40,7 @@ class ContactsViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        displayContacts()
+        
     }
     
     //MARK: - Deinit
@@ -54,7 +60,8 @@ class ContactsViewController: UIViewController{
     
     //Reset to default contacts' list 
     @objc func resetTapped() {
-        
+        resetToDefault()
+        print("reset tapped")
     }
     
     //Add new contact

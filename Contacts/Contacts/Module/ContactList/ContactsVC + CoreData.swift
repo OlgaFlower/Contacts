@@ -12,10 +12,29 @@ import UIKit
 
 extension ContactsViewController {
     
+    func resetToDefault() {
+        defaults.set(false, forKey: "notFirstLaunch")
+    }
+    
+    func changeFirstLaunchFlag() {
+        defaults.set(true, forKey: "notFirstLaunch")
+    }
+    
+    
+    
     func displayContacts() {
-        createDefaultContactList()
-        //Load examples
-        loadContacts()
+        
+        let flag = defaults.bool(forKey: "notFirstLaunch")
+        print("not first launch flag? = \(flag)")
+        
+        if defaults.bool(forKey: "notFirstLaunch") == false {
+            createDefaultContactList()
+            //Load examples
+            loadContacts()
+            changeFirstLaunchFlag()
+        } else {
+            contactList = dataBase.loadContactsFromDB()
+        }
     }
     
     

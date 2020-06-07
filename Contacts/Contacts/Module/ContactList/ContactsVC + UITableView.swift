@@ -31,9 +31,21 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
         
         guard let selectedContact = contactList?[indexPath.row] else { return }
         vc.personCard = selectedContact
-//        self.index = indexPath.row
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    //MARK: Delete contact list rows
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let contact = contactList?[indexPath.row] else { return }
+            dataBase.context.delete(contact)
+//            contactList = dataBase.loadContactsFromDB()
+            contactList?.remove(at: indexPath.row)
+            dataBase.saveToDB()
+            tableView.reloadData()
+        }
+    }
+    
 }
+
