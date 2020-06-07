@@ -35,15 +35,24 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    //MARK: Delete contact list rows
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            guard let contact = contactList?[indexPath.row] else { return }
-            dataBase.context.delete(contact)
-            dataBase.saveToDB()
-            contactList?.remove(at: indexPath.row)
-            tableView.reloadData()
+    //MARK: Delete contact from list
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, complete in
+            guard let contact = self.contactList?[indexPath.row] else { return }
+            self.dataBase.context.delete(contact)
+            self.dataBase.saveToDB()
+            self.contactList?.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.reloadData()
+            complete(true)
         }
+        
+        deleteAction.image = UIImage(named: "remove2")
+        deleteAction.backgroundColor = #colorLiteral(red: 0.05524021184, green: 0.1857604743, blue: 1, alpha: 1)
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
     }
 }
 
