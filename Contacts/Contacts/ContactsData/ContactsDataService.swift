@@ -38,15 +38,13 @@ class ContactsDataService {
     }
     
     //MARK: - Erase contacts base
-    func eraseContactListFromDB() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+    func eraseContactListFromDB(_ list: [Person]?) {
+        guard let list = list else { return }
         
-        do {
-            try context.execute(batchDeleteRequest)
-        } catch {
-            print("Error batch deleting request to DB \(error)")
+        for contact in 0 ..< list.count {
+            context.delete(list[contact])
         }
+        saveToDB()
     }
 }
 

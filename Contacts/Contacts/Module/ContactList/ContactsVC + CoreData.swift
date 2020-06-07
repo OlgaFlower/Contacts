@@ -12,6 +12,14 @@ import UIKit
 
 extension ContactsViewController {
     
+    func removeAllContacts() {
+        dataBase.eraseContactListFromDB(contactList)
+        resetToDefault()
+        displayContacts()
+        tableView.reloadData()
+    }
+    
+    
     func resetToDefault() {
         defaults.set(false, forKey: "notFirstLaunch")
     }
@@ -23,7 +31,6 @@ extension ContactsViewController {
     
     
     func displayContacts() {
-        
         let flag = defaults.bool(forKey: "notFirstLaunch")
         print("not first launch flag? = \(flag)")
         

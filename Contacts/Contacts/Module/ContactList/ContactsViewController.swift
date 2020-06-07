@@ -61,7 +61,7 @@ class ContactsViewController: UIViewController{
     
     //Reset to default contacts' list 
     @objc func resetTapped() {
-        resetToDefault()
+        removeAllContacts()
         print("reset tapped")
     }
     
