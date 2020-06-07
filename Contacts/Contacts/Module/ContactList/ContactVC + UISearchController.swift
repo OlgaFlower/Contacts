@@ -20,6 +20,7 @@ extension ContactsViewController: UISearchResultsUpdating {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search name"
+        searchController.searchBar.keyboardAppearance = .light
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }

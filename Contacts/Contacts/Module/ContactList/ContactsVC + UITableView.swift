@@ -22,7 +22,6 @@ extension ContactsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
         cell.layer.backgroundColor = UIColor.clear.cgColor
-        
         let list: [Person]?
         
         if isFiltering {

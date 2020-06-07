@@ -12,7 +12,6 @@ class ContactsViewController: UIViewController{
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var addNewContactButton: UIButton!
     
     //MARK: - Properties
@@ -39,6 +38,11 @@ class ContactsViewController: UIViewController{
         //Observers
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactList(notification:)), name: .reloadContactList, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateContactCard(notification:)), name: .updatedContactCard, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupSearchController()
     }
     
     //MARK: - Deinit

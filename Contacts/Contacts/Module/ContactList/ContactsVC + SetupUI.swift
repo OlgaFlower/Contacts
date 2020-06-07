@@ -16,7 +16,7 @@ extension ContactsViewController {
         setupTableView()
         setupResetNavBarButton()
         setupNavbarAppearence()
-        setupSearchController()
+        
     }
     
     //Setup table view
